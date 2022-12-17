@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h1>Menu</h1>
+        <h1>Explore</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: "MenuCreate"
+        name: 'ExploreComp'
     }
 </script>
 

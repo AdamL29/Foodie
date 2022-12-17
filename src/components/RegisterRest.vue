@@ -1,10 +1,14 @@
 <template>
     <v-container>
-        <h3>User Email:</h3>
+        <h3>Restaurant Name:</h3>
+        <v-text-field
+        v-model="restName"
+        />
+        <h3>Restaurant Email:</h3>
         <v-text-field
         v-model="email"
         />
-        <h3>User Password:</h3>
+        <h3>Password:</h3>
         <v-text-field
         v-model="password"
         />
@@ -17,38 +21,38 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies"
-import router from '@/router';
 
     export default {
-        name: "RegisterAccount",
+        name: "RegisterRest",
         
         data() {
             return {
                 apiKey : process.env.VUE_APP_API_KEY,
                 apiUrl : process.env.VUE_APP_API_URL,
+                restName: "",
                 email : "",
                 password : "",
             }
         },
         methods: {
             apiCall() {
-                cookies.set('username', this.email);
+                cookies.set('restaurantname', this.restName);
+                console.log(this.apiKey);
+                console.log(this.apiUrl+"client");
                 console.log(this.email);
                 console.log(this.password);
             },
-            registerCall(){
+            login(){
                 axios.request({
                     url: "https://reqres.in/api/login",
                     method: "POST",
                     data: {
+                        name: this.restName,
                         email: this.email,
                         password: this.password,
                     }
                 }).then((response)=>{
                     console.log(response);
-                    console.log(this.apiKey);
-                    console.log(this.apiUrl+"client");
-                    router.push('/explore');
                 }).catch(()=>{
                     console.log("error");
                 })

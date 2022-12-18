@@ -12,6 +12,22 @@
         <v-text-field
         v-model="password"
         />
+        <h3>Address:</h3>
+        <v-text-field
+        v-model="address"
+        />
+        <h3>City:</h3>
+        <v-text-field
+        v-model="city"
+        />
+        <h3>Phone Number:</h3>
+        <v-text-field
+        v-model="phoneNumber"
+        />
+        <h3>Bio:</h3>
+        <v-text-field
+        v-model="BiquadFilterNode"
+        />
         <v-btn @click="apiCall">
         Create Account
         </v-btn>
@@ -19,8 +35,9 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import cookies from "vue-cookies"
+import router from '@/router';
 
     export default {
         name: "RegisterRest",
@@ -30,8 +47,12 @@ import cookies from "vue-cookies"
                 apiKey : process.env.VUE_APP_API_KEY,
                 apiUrl : process.env.VUE_APP_API_URL,
                 restName: "",
-                email : "",
-                password : "",
+                email: "",
+                password: "",
+                address: "",
+                city: "",
+                phoneNumber: "",
+                bio: "",
             }
         },
         methods: {
@@ -41,22 +62,23 @@ import cookies from "vue-cookies"
                 console.log(this.apiUrl+"client");
                 console.log(this.email);
                 console.log(this.password);
+                router.push('/explore');
             },
-            login(){
-                axios.request({
-                    url: "https://reqres.in/api/login",
-                    method: "POST",
-                    data: {
-                        name: this.restName,
-                        email: this.email,
-                        password: this.password,
-                    }
-                }).then((response)=>{
-                    console.log(response);
-                }).catch(()=>{
-                    console.log("error");
-                })
-            }
+            // login(){
+            //     axios.request({
+            //         url: "",
+            //         method: "POST",
+            //         data: {
+            //             name: this.restName,
+            //             email: this.email,
+            //             password: this.password,
+            //         }
+            //     }).then((response)=>{
+            //         console.log(response);
+            //     }).catch(()=>{
+            //         console.log("error");
+            //     })
+            // }
         },
     }
 </script>

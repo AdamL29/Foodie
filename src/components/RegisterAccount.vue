@@ -8,6 +8,18 @@
         <v-text-field
         v-model="password"
         />
+        <h3>First Name:</h3>
+        <v-text-field
+        v-model="firstName"
+        />
+        <h3>Last Name:</h3>
+        <v-text-field
+        v-model="lastName"
+        />
+        <h3>Username:</h3>
+        <v-text-field
+        v-model="userName"
+        />
         <v-btn @click="apiCall">
         Create Account
         </v-btn>
@@ -28,6 +40,9 @@ import router from '@/router';
                 apiUrl : process.env.VUE_APP_API_URL,
                 email : "",
                 password : "",
+                firstName: "",
+                lastName: "",
+                userName: "",
             }
         },
         methods: {
@@ -35,6 +50,7 @@ import router from '@/router';
                 cookies.set('username', this.email);
                 console.log(this.email);
                 console.log(this.password);
+                router.push('/explore');
             },
             registerCall(){
                 axios.request({

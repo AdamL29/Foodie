@@ -38,11 +38,12 @@ export default {
 
         signIn(){
             console.log('You are signed in');
+            router.push('/explore')
         },
         createMenu(){
             console.log("menu time");
             router.push('/menu')
-        }
+        },
     },
 }
 

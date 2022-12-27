@@ -36,10 +36,10 @@ import router from '@/router';
         
         data() {
             return {
-                apiKey : process.env.VUE_APP_API_KEY,
-                apiUrl : process.env.VUE_APP_API_URL,
-                email : "",
-                password : "",
+                apiKey: process.env.VUE_APP_API_KEY,
+                apiUrl: process.env.VUE_APP_API_URL,
+                email: "",
+                password: "",
                 firstName: "",
                 lastName: "",
                 userName: "",

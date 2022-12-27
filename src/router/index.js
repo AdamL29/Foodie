@@ -5,6 +5,7 @@ import SignUp from '@/views/SignUp'
 import MenuPage from '@/views/MenuPage'
 import RestSignUp from '@/views/RestSignUp'
 import ExplorePage from '@/views/ExplorePage'
+import OrderPage from '@/views/OrderPage'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/explore',
     name: 'explore',
     component: ExplorePage
+  },
+  {
+    path: '/cart',
+    name: 'ordercart',
+    component: OrderPage
   },
 ]
 

@@ -44,8 +44,8 @@ import router from '@/router';
         
         data() {
             return {
-                apiKey : process.env.VUE_APP_API_KEY,
-                apiUrl : process.env.VUE_APP_API_URL,
+                apiKey: process.env.VUE_APP_API_KEY,
+                apiUrl: process.env.VUE_APP_API_URL,
                 restName: "",
                 email: "",
                 password: "",

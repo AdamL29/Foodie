@@ -38,7 +38,7 @@ export default {
 
         signIn(){
             console.log('You are signed in');
-            router.push('/explore')
+            router.push('/signin')
         },
         createMenu(){
             console.log("menu time");

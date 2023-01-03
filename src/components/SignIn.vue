@@ -1,27 +1,15 @@
 <template>
     <v-container>
-        <h3>User Email:</h3>
+        <h3>Username:</h3>
         <v-text-field
-        v-model="email"
+        v-model="userName"
         />
         <h3>User Password:</h3>
         <v-text-field
         v-model="password"
         />
-        <h3>First Name:</h3>
-        <v-text-field
-        v-model="firstName"
-        />
-        <h3>Last Name:</h3>
-        <v-text-field
-        v-model="lastName"
-        />
-        <h3>Username:</h3>
-        <v-text-field
-        v-model="userName"
-        />
-        <v-btn @click="registerCall">
-        Create Account
+        <v-btn @click="signCall">
+        Sign In
         </v-btn>
     </v-container>
 </template>
@@ -32,17 +20,14 @@ import cookies from "vue-cookies"
 import router from '@/router';
 
     export default {
-        name: "RegisterAccount",
+        name: "SignIn",
         
         data() {
             return {
                 apiKey: process.env.VUE_APP_API_KEY,
                 apiUrl: process.env.VUE_APP_API_URL,
-                email: "",
-                password: "",
-                firstName: "",
-                lastName: "",
                 userName: "",
+                password: "",
             }
         },
         methods: {
@@ -52,20 +37,18 @@ import router from '@/router';
                 console.log(this.password);
                 router.push('/explore');
             },
-            registerCall(){
+            signCall(){
                 axios.request({
                     url: this.apiUrl,
-                    method: "POST",
+                    method: "GET",
                     data: {
-                        email: this.email,
+                        username: this.userName,
                         password: this.password,
                     }
                 }).then(()=>{
                     console.log(this.apiKey);
                     console.log(this.apiUrl+"client");
-                    
-                    //Need to sign in after registration
-                    router.push('/signin');
+                    router.push('/explore');
                 }).catch(()=>{
                     console.log("error");
                 })

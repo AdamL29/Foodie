@@ -19,7 +19,7 @@ export default {
     methods: {
         signUp() {
             axios.request({
-                url: 'https://api.adviceslip.com/advice',
+                url: 'https://foodierest.ml/api/',
                 method: "GET"
             }).then((response)=>{
                 console.log(response);
@@ -28,7 +28,7 @@ export default {
         },
         restSignUp() {
             axios.request({
-                url: 'https://api.adviceslip.com/advice',
+                url: 'https://foodierest.ml/api/',
                 method: "GET"
             }).then((response)=>{
                 console.log(response);

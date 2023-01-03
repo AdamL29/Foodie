@@ -66,7 +66,7 @@ import router from '@/router';
             },
             // login(){
             //     axios.request({
-            //         url: "",
+            //         url: 'https://foodierest.ml/api/',
             //         method: "POST",
             //         data: {
             //             name: this.restName,

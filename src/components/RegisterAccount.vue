@@ -54,7 +54,7 @@ import router from '@/router';
             },
             registerCall(){
                 axios.request({
-                    url: this.apiUrl,
+                    url: 'https://foodierest.ml/api/',
                     method: "POST",
                     data: {
                         email: this.email,

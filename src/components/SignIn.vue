@@ -39,7 +39,7 @@ import router from '@/router';
             },
             signCall(){
                 axios.request({
-                    url: this.apiUrl,
+                    url: 'https://foodierest.ml/api/',
                     method: "GET",
                     data: {
                         username: this.userName,

@@ -12,30 +12,17 @@
 
 <script>
 import router from '@/router';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
     name: "HomePage",
     methods: {
         signUp() {
-            axios.request({
-                url: 'https://foodierest.ml/api/',
-                method: "GET"
-            }).then((response)=>{
-                console.log(response);
                 router.push('/sign-up')
-            }).catch("error")
         },
         restSignUp() {
-            axios.request({
-                url: 'https://foodierest.ml/api/',
-                method: "GET"
-            }).then((response)=>{
-                console.log(response);
                 router.push('/restaurant-sign-up')
-            }).catch("error")
         },
-
         signIn(){
             console.log('You are signed in');
             router.push('/signin')

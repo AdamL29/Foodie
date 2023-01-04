@@ -1,25 +1,25 @@
 <template>
     <v-container>
         <h3>User Email:</h3>
-        <v-text-field
-        v-model="email"
-        />
+            <v-text-field
+            v-model="email"
+            />
         <h3>User Password:</h3>
-        <v-text-field
-        v-model="password"
-        />
+            <v-text-field
+            v-model="password"
+            />
         <h3>First Name:</h3>
-        <v-text-field
-        v-model="firstName"
-        />
+            <v-text-field
+            v-model="firstName"
+            />
         <h3>Last Name:</h3>
-        <v-text-field
-        v-model="lastName"
-        />
+            <v-text-field
+            v-model="lastName"
+            />
         <h3>Username:</h3>
-        <v-text-field
-        v-model="userName"
-        />
+            <v-text-field
+            v-model="userName"
+            />
         <v-btn @click="registerCall">
         Create Account
         </v-btn>
@@ -46,28 +46,28 @@ import router from '@/router';
             }
         },
         methods: {
-            apiCall() {
-                cookies.set('username', this.userName);
-                console.log(this.email);
-                console.log(this.password);
-                router.push('/explore');
-            },
             registerCall(){
                 axios.request({
-                    url: 'https://foodierest.ml/api/',
+                    url: 'https://foodierest.ml/api/client',
                     method: "POST",
+                    headers: {
+                        "x-api-key": this.apiKey,
+                    },
                     data: {
                         email: this.email,
                         password: this.password,
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        username: this.userName,
                     }
-                }).then(()=>{
+                }).then((response)=>{
+                    cookies.set('token', response.data.token);
+                    cookies.set('clientId', response.data.clientId);
                     console.log(this.apiKey);
-                    console.log(this.apiUrl+"client");
-                    
                     //Need to sign in after registration
                     router.push('/signin');
-                }).catch(()=>{
-                    console.log("error");
+                }).catch((error)=>{
+                    console.log(error);
                 })
             }
         },

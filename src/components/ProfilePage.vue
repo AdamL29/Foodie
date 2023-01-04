@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+        <v-container>
         <h1>Login</h1>
         <h3>Username:</h3>
             <v-text-field
@@ -9,44 +9,48 @@
             <v-text-field
             v-model="password"
             />
-        <v-btn @click="signCall">
-        Sign In
+        <v-btn @click="updateCall">
+        Update
         </v-btn>
     </v-container>
 </template>
 
 <script>
-import axios from "axios";
-import cookies from "vue-cookies";
-import router from '@/router';
-
     export default {
-        name: "SignIn",
-        
+        name: 'ProfilePage',
+                
         data() {
             return {
                 apiKey: process.env.VUE_APP_API_KEY,
                 apiUrl: process.env.VUE_APP_API_URL,
-                userName: "",
+                email: "",
                 password: "",
+                firstName: "",
+                lastName: "",
+                userName: "",
             }
         },
         methods: {
-            signCall(){
+            registerCall(){
                 axios.request({
-                    url: 'https://foodierest.ml/api/client-login',
-                    method: "POST",
+                    url: 'https://foodierest.ml/api/client',
+                    method: "PATCH",
                     headers: {
                         "x-api-key": this.apiKey,
+                        token: tokenNum
                     },
                     data: {
-                        username: this.userName,
+                        email: this.email,
                         password: this.password,
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        username: this.userName,
                     }
                 }).then((response)=>{
-                    cookies.set('token', response.data.token);
-                    cookies.set('clientId', response.data.clientId);
-                    router.push('/explore');
+                    cookies.get('token', response.data.token);
+                    cookies.get('clientId', response.data.clientId);
+                    
+                    router.push('/signin');
                 }).catch((error)=>{
                     console.log(error);
                 })

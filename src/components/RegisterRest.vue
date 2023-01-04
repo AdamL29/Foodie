@@ -1,41 +1,41 @@
 <template>
     <v-container>
         <h3>Restaurant Name:</h3>
-        <v-text-field
-        v-model="restName"
-        />
+            <v-text-field
+            v-model="restName"
+            />
         <h3>Restaurant Email:</h3>
-        <v-text-field
-        v-model="email"
-        />
+            <v-text-field
+            v-model="email"
+            />
         <h3>Password:</h3>
-        <v-text-field
-        v-model="password"
-        />
+            <v-text-field
+            v-model="password"
+            />
         <h3>Address:</h3>
-        <v-text-field
-        v-model="address"
-        />
+            <v-text-field
+            v-model="address"
+            />
         <h3>City:</h3>
-        <v-text-field
-        v-model="city"
-        />
+            <v-text-field
+            v-model="city"
+            />
         <h3>Phone Number:</h3>
-        <v-text-field
-        v-model="phoneNumber"
-        />
+            <v-text-field
+            v-model="phoneNumber"
+            />
         <h3>Bio:</h3>
-        <v-text-field
-        v-model="BiquadFilterNode"
-        />
-        <v-btn @click="apiCall">
+            <v-text-field
+            v-model="BiquadFilterNode"
+            />
+        <v-btn @click="restCall">
         Create Account
         </v-btn>
     </v-container>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 import cookies from "vue-cookies"
 import router from '@/router';
 
@@ -56,29 +56,30 @@ import router from '@/router';
             }
         },
         methods: {
-            apiCall() {
-                cookies.set('restaurantname', this.restName);
-                console.log(this.apiKey);
-                console.log(this.apiUrl+"client");
-                console.log(this.email);
-                console.log(this.password);
-                router.push('/explore');
-            },
-            // login(){
-            //     axios.request({
-            //         url: 'https://foodierest.ml/api/',
-            //         method: "POST",
-            //         data: {
-            //             name: this.restName,
-            //             email: this.email,
-            //             password: this.password,
-            //         }
-            //     }).then((response)=>{
-            //         console.log(response);
-            //     }).catch(()=>{
-            //         console.log("error");
-            //     })
-            // }
+            restCall() {
+                axios.request({
+                    url: 'https://foodierest.ml/api/restaurant',
+                    method: "POST",
+                    headers:{
+                        "x-api-key": this.apiKey,
+                    },
+                    data: {
+                        name: this.restName,
+                        email: this.email,
+                        password: this.password,
+                        address: this.address,
+                        city: this.city,
+                        phoneNumber: this.phoneNumber,
+                        bio: this.bio,
+                    }
+                }).then((response)=>{
+                    cookies.set('restToken', response.data.token);
+                    cookies.set('restId', response.data.restId);
+                    router.push('/signin')
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            }
         },
     }
 </script>

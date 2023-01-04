@@ -9,7 +9,7 @@
     import SignIn from '@/components/SignIn.vue';
     
     export default {
-        name: 'SignUp',
+        name: 'SignInPage',
         components: {
         SignIn,
         },

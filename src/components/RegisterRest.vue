@@ -26,7 +26,7 @@
             />
         <h3>Bio:</h3>
             <v-text-field
-            v-model="BiquadFilterNode"
+            v-model="bio"
             />
         <v-btn @click="restCall">
         Create Account

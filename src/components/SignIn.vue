@@ -40,7 +40,7 @@ import router from '@/router';
                         "x-api-key": this.apiKey,
                     },
                     data: {
-                        username: this.userName,
+                        email: this.userName,
                         password: this.password,
                     }
                 }).then((response)=>{

@@ -1,12 +1,14 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '@/views/HomeView'
-import SignUp from '@/views/SignUp'
-import MenuPage from '@/views/MenuPage'
-import RestSignUp from '@/views/RestSignUp'
-import ExplorePage from '@/views/ExplorePage'
-import OrderPage from '@/views/OrderPage'
-import SignInPage from '@/views/SignInPage'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import HomeView from '@/views/HomeView';
+import SignUp from '@/views/SignUp';
+import MenuPage from '@/views/MenuPage';
+import RestSignUp from '@/views/RestSignUp';
+import ExplorePage from '@/views/ExplorePage';
+import OrderPage from '@/views/OrderPage';
+import SignInPage from '@/views/SignInPage';
+import ProfilePage from '@/views/ProfilePage';
+import RestaurantPage from '@/views/RestaurantPage';
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ const routes = [
     path: '/signin',
     name: 'signin',
     component: SignInPage
+  },
+  {
+    path: '/profile-page',
+    name: 'profilepage',
+    component: ProfilePage
+  },
+  {
+    path: '/restaurant-page',
+    name: 'restaurantpage',
+    component: RestaurantPage
   },
 ]
 

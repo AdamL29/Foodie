@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h1>Login</h1>
-        <h3>Username:</h3>
+        <h3>User Email:</h3>
             <v-text-field
             v-model="userName"
             />

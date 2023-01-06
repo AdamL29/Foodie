@@ -1,13 +1,25 @@
 <template>
         <v-container>
-        <h1>Login</h1>
-        <h3>Username:</h3>
+        <h1>Profile</h1>
+        <h3>Update Username:</h3>
             <v-text-field
             v-model="userName"
             />
-        <h3>User Password:</h3>
+        <h3>Update Password:</h3>
             <v-text-field
             v-model="password"
+            />
+        <h3>Update email:</h3>
+            <v-text-field
+            v-model="email"
+            />
+        <h3>First Name:</h3>
+            <v-text-field
+            v-model="firstName"
+            />
+        <h3>Last Name:</h3>
+            <v-text-field
+            v-model="lastName"
             />
         <v-btn @click="updateCall">
         Update
@@ -16,8 +28,12 @@
 </template>
 
 <script>
+import axios from "axios";
+import cookies from "vue-cookies";
+import router from '@/router';
+
     export default {
-        name: 'ProfilePage',
+        name: 'ProfileUpdate',
                 
         data() {
             return {
@@ -31,13 +47,12 @@
             }
         },
         methods: {
-            registerCall(){
+            updateCall(){
                 axios.request({
                     url: 'https://foodierest.ml/api/client',
                     method: "PATCH",
                     headers: {
                         "x-api-key": this.apiKey,
-                        token: tokenNum
                     },
                     data: {
                         email: this.email,
@@ -47,8 +62,8 @@
                         username: this.userName,
                     }
                 }).then((response)=>{
-                    cookies.get('token', response.data.token);
-                    cookies.get('clientId', response.data.clientId);
+                    cookies.set('token', response.data.token);
+                    cookies.set('clientId', response.data.clientId);
                     
                     router.push('/signin');
                 }).catch((error)=>{

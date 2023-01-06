@@ -6,6 +6,7 @@
         <div>
             <v-btn @click="signIn">Sign In</v-btn>
             <v-btn @click="createMenu">Menu</v-btn>
+            <v-btn @click="profilePage">Profile</v-btn>
         </div>
     </v-container>
 </template>
@@ -18,10 +19,13 @@ export default {
     name: "HomePage",
     methods: {
         signUp() {
-                router.push('/sign-up')
+            router.push('/sign-up')
         },
         restSignUp() {
-                router.push('/restaurant-sign-up')
+            router.push('/restaurant-sign-up')
+        },
+        profilePage(){
+            router.push('/profile-page')
         },
         signIn(){
             console.log('You are signed in');

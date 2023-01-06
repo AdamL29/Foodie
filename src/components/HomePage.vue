@@ -5,8 +5,14 @@
 
         <div>
             <v-btn @click="signIn">Sign In</v-btn>
+            <v-btn @click="restSignIn">Rest Sign In</v-btn>
             <v-btn @click="createMenu">Menu</v-btn>
+        </div>
+
+        <div>
+            <v-btn @click="explorePage">Explore</v-btn>
             <v-btn @click="profilePage">Profile</v-btn>
+
         </div>
     </v-container>
 </template>
@@ -27,9 +33,15 @@ export default {
         profilePage(){
             router.push('/profile-page')
         },
+        restSignIn(){
+            router.push('/restaurant-sign-in')
+        },
+        explorePage(){
+            router.push('/explore')
+        },
         signIn(){
             console.log('You are signed in');
-            router.push('/signin')
+            router.push('/sign-in')
         },
         createMenu(){
             console.log("menu time");

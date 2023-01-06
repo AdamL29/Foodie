@@ -1,28 +1,29 @@
 <template>
     <v-container>
-        <h3>User Email:</h3>
-            <v-text-field
-            v-model="email"
-            />
-        <h3>User Password:</h3>
-            <v-text-field
-            v-model="password"
-            />
-        <h3>First Name:</h3>
-            <v-text-field
-            v-model="firstName"
-            />
-        <h3>Last Name:</h3>
-            <v-text-field
-            v-model="lastName"
-            />
-        <h3>Username:</h3>
-            <v-text-field
-            v-model="userName"
-            />
-        <v-btn @click="registerCall">
-        Create Account
-        </v-btn>
+        <h1>Create an Account</h1>
+            <h3>User Email:</h3>
+                <v-text-field
+                v-model="email"
+                />
+            <h3>User Password:</h3>
+                <v-text-field
+                v-model="password"
+                />
+            <h3>First Name:</h3>
+                <v-text-field
+                v-model="firstName"
+                />
+            <h3>Last Name:</h3>
+                <v-text-field
+                v-model="lastName"
+                />
+            <h3>Username:</h3>
+                <v-text-field
+                v-model="userName"
+                />
+            <v-btn @click="registerCall">
+            Create Account
+            </v-btn>
     </v-container>
 </template>
 

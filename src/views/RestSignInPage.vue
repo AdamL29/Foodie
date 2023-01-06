@@ -1,16 +1,16 @@
 <template>
     <v-container>
-        <SignIn/>
+        <RestSignIn/>
     </v-container>  
 </template>
 
 <script>
-    import SignIn from '@/components/SignIn.vue';
+    import RestSignIn from '@/components/RestSignIn.vue';
     
     export default {
         name: 'SignInPage',
         components: {
-        SignIn,
+        RestSignIn,
         },
     }
 

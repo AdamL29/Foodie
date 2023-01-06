@@ -1,36 +1,37 @@
 <template>
     <v-container>
-        <h3>Restaurant Name:</h3>
-            <v-text-field
-            v-model="restName"
-            />
-        <h3>Restaurant Email:</h3>
-            <v-text-field
-            v-model="email"
-            />
-        <h3>Password:</h3>
-            <v-text-field
-            v-model="password"
-            />
-        <h3>Address:</h3>
-            <v-text-field
-            v-model="address"
-            />
-        <h3>City:</h3>
-            <v-text-field
-            v-model="city"
-            />
-        <h3>Phone Number:</h3>
-            <v-text-field
-            v-model="phoneNumber"
-            />
-        <h3>Bio:</h3>
-            <v-text-field
-            v-model="bio"
-            />
-        <v-btn @click="restCall">
-        Create Account
-        </v-btn>
+        <h1>Create an Account</h1>
+            <h3>Restaurant Name:</h3>
+                <v-text-field
+                v-model="restName"
+                />
+            <h3>Restaurant Email:</h3>
+                <v-text-field
+                v-model="email"
+                />
+            <h3>Password:</h3>
+                <v-text-field
+                v-model="password"
+                />
+            <h3>Address:</h3>
+                <v-text-field
+                v-model="address"
+                />
+            <h3>City:</h3>
+                <v-text-field
+                v-model="city"
+                />
+            <h3>Phone Number:</h3>
+                <v-text-field
+                v-model="phoneNumber"
+                />
+            <h3>Bio:</h3>
+                <v-text-field
+                v-model="bio"
+                />
+            <v-btn @click="restCall">
+            Create Account
+            </v-btn>
     </v-container>
 </template>
 
@@ -69,13 +70,13 @@ import router from '@/router';
                         password: this.password,
                         address: this.address,
                         city: this.city,
-                        phoneNumber: this.phoneNumber,
+                        phoneNum: this.phoneNumber,
                         bio: this.bio,
                     }
                 }).then((response)=>{
                     cookies.set('restToken', response.data.token);
                     cookies.set('restId', response.data.restId);
-                    router.push('/signin')
+                    router.push('/restaurant-signin')
                 }).catch((error)=>{
                     console.log(error);
                 })

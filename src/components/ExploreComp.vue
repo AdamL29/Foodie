@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-container>
         <h1>Update</h1>
             <v-btn @click="profileUpdate">
             Your Profile
@@ -15,7 +15,7 @@
                     <h4>{{ restEmail }}</h4>
                 </div>
             </div>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -27,17 +27,19 @@ import router from "@/router"
         name: 'ExploreComp',
         data() {
             return {
-                restaurants: "",
+                restaurants: [],
             }
         },
         mounted() {
+            let restaurantId = cookies.get('restaurantId');
+
             axios.request({
                 url: 'https://foodierest.ml/api/restaurant',
                 headers: {
                     "x-api-key": this.apiKey,
                 },
                 params: {
-                    // restaurantId: restaurantId
+                    restaurantId: restaurantId
                 }
             }).then((response)=>{
                 this.restaurants = response.data;
@@ -48,7 +50,7 @@ import router from "@/router"
         methods: {
             restSelect(restaurantId) {
                 cookies.set('restaurantId', restaurantId);
-                router.push("/restaurantpage");
+                router.push("/restaurant-page");
             },
             profileUpdate(){
                 router.push('/profile-page')

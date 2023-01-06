@@ -1,43 +1,23 @@
 <template>
     <v-container>
-        <h3>Restaurant Name:</h3>
-            <v-text-field
-            v-model="restName"
-            />
-        <h3>Restaurant Email:</h3>
-            <v-text-field
-            v-model="email"
-            />
-        <h3>Password:</h3>
-            <v-text-field
-            v-model="password"
-            />
-        <h3>Address:</h3>
-            <v-text-field
-            v-model="address"
-            />
-        <h3>City:</h3>
-            <v-text-field
-            v-model="city"
-            />
-        <h3>Phone Number:</h3>
-            <v-text-field
-            v-model="phoneNumber"
-            />
-        <h3>Bio:</h3>
-            <v-text-field
-            v-model="bio"
-            />
-        <v-btn @click="restCall">
-        Create Account
-        </v-btn>
+        <h1>Test Header</h1>
+            <button>Just Click</button>
+        <h1>Explore</h1>
+            <div v-for="(restaurant, index) in restaurants" :key="index">            
+                <h2>{{ restName }}</h2>
+                <h3>{{ restPhone }}</h3>
+                <h4>{{ restBio }}</h4>
+                <h3>{{ restAddress }}</h3>
+                <h4>{{ restCity }}</h4>
+                <h4>{{ restEmail }}</h4>
+            </div>
     </v-container>
 </template>
 
 <script>
 import axios from "axios";
 import cookies from "vue-cookies"
-import router from '@/router';
+// import router from '@/router';
 
     export default {
         name: "RegisterProfile",
@@ -46,41 +26,27 @@ import router from '@/router';
             return {
                 apiKey: process.env.VUE_APP_API_KEY,
                 apiUrl: process.env.VUE_APP_API_URL,
-                restName: "",
-                email: "",
-                password: "",
-                address: "",
-                city: "",
-                phoneNumber: "",
-                bio: "",
+                restaurant: [],
             }
         },
-        methods: {
-            restCall() {
+        mounted() {
+            let restaurantId = cookies.get('restaurantId');
+
                 axios.request({
                     url: 'https://foodierest.ml/api/restaurant',
                     method: "POST",
                     headers:{
                         "x-api-key": this.apiKey,
                     },
-                    data: {
-                        name: this.restName,
-                        email: this.email,
-                        password: this.password,
-                        address: this.address,
-                        city: this.city,
-                        phoneNumber: this.phoneNumber,
-                        bio: this.bio,
+                    params: {
+                        restaurantId: restaurantId,
                     }
-                }).then((response)=>{
-                    cookies.set('restToken', response.data.token);
-                    cookies.set('restId', response.data.restId);
-                    router.push('/signin')
-                }).catch((error)=>{
-                    console.log(error);
-                })
+                    }).then((response)=>{
+                        this.restaurants = response.data;
+                    }).catch((error)=>{
+                        console.log(error);
+                    });
             }
-        },
     }
 </script>
 

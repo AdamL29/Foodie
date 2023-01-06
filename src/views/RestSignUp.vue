@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        <h1>Create an Account</h1>
         <RegisterRest/>
     </v-container>  
 </template>

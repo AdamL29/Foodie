@@ -1,9 +1,9 @@
 <template>
     <v-container>
-        <h1>Login</h1>
+        <h1>Restaurant Login</h1>
         <h3>User Email:</h3>
             <v-text-field
-            v-model="userEmail"
+            v-model="userName"
             />
         <h3>User Password:</h3>
             <v-text-field
@@ -21,26 +21,26 @@ import cookies from "vue-cookies";
 import router from '@/router';
 
     export default {
-        name: "SignIn",
+        name: "RestSignIn",
         
         data() {
             return {
                 apiKey: process.env.VUE_APP_API_KEY,
                 apiUrl: process.env.VUE_APP_API_URL,
-                userEmail: "",
+                restEmail: "",
                 password: "",
             }
         },
         methods: {
             signCall(){
                 axios.request({
-                    url: 'https://foodierest.ml/api/client-login',
+                    url: 'https://foodierest.ml/api/restaurant-login',
                     method: "POST",
                     headers: {
                         "x-api-key": this.apiKey,
                     },
                     data: {
-                        email: this.userEmail,
+                        email: this.restEmail,
                         password: this.password,
                     }
                 }).then((response)=>{

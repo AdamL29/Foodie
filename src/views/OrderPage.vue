@@ -1,18 +1,17 @@
 <template>
     <v-container>
-        <h1>HOrder Page</h1>
-        <orderCart/>
+        <OrderCart/>
     </v-container>
 </template>
 
 <script>
-import orderCart from '@/components/OrderCart.vue';
+import OrderCart from '@/components/OrderCart.vue';
 
     export default {
-    name: "OrderPage",
-    components: {
-        orderCart,
-    },
+        name: "OrderPage",
+        components: {
+            OrderCart,
+        },
     }
 
 </script>

@@ -9,6 +9,7 @@ import OrderPage from '@/views/OrderPage';
 import SignInPage from '@/views/SignInPage';
 import ProfilePage from '@/views/ProfilePage';
 import RestaurantPage from '@/views/RestaurantPage';
+import RestSignInPage from '@/views/RestSignInPage';
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,7 @@ const routes = [
   },
   {
     path: '/sign-up',
-    name: 'signup',
+    name: 'signUp',
     component: SignUp
   },
   {
@@ -30,7 +31,7 @@ const routes = [
   },
   {
     path: '/restaurant-sign-up',
-    name: 'restsignup',
+    name: 'restSignUp',
     component: RestSignUp
   },
   {
@@ -40,24 +41,29 @@ const routes = [
   },
   {
     path: '/cart',
-    name: 'ordercart',
+    name: 'orderCart',
     component: OrderPage
   },
   {
-    path: '/signin',
-    name: 'signin',
+    path: '/sign-in',
+    name: 'signIn',
     component: SignInPage
   },
   {
     path: '/profile-page',
-    name: 'profilepage',
+    name: 'profilePage',
     component: ProfilePage
   },
   {
     path: '/restaurant-page',
-    name: 'restaurantpage',
+    name: 'restaurantPage',
     component: RestaurantPage
   },
+  {
+    path: '/restaurant-sign-in',
+    name: 'restSignIn',
+    compennt: RestSignInPage
+  }
 ]
 
 const router = new VueRouter({

@@ -1,9 +1,9 @@
 <template>
     <v-container>
         <h1>Restaurant Login</h1>
-        <h3>User Email:</h3>
+        <h3>Restaurant Email:</h3>
             <v-text-field
-            v-model="userName"
+            v-model="restEmail"
             />
         <h3>User Password:</h3>
             <v-text-field
@@ -45,8 +45,8 @@ import router from '@/router';
                     }
                 }).then((response)=>{
                     cookies.set('token', response.data.token);
-                    cookies.set('clientId', response.data.clientId);
-                    router.push('/explore');
+                    cookies.set('restId', response.data.clientId);
+                    router.push('/restaurant-page');
                 }).catch((error)=>{
                     console.log(error);
                 })

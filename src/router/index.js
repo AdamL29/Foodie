@@ -62,7 +62,7 @@ const routes = [
   {
     path: '/restaurant-sign-in',
     name: 'restSignIn',
-    compennt: RestSignInPage
+    component: RestSignInPage
   }
 ]
 

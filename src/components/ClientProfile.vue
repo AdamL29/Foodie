@@ -2,16 +2,15 @@
     <v-container>
         <h1>Test Header</h1>
             <button>Just Click</button>
-            <!-- <div v-for="(, index) in " :key="index">            
-                <h1>{{ .name }}</h1>
-                <h3>{{ .phoneNum }}</h3>
+            <div v-for="(, index) in " :key="index">            
+                <h1>{{ client.userName }}</h1>
+                <h3>{{ client.phoneNum }}</h3>
                 <div>
-                    <h4>{{ .bio }}</h4>
-                    <h3>{{ .address }}</h3>
-                    <h4>{{ .city }}</h4>
-                    <h4>{{ .email }}</h4>
-                </div> -->
-            <!-- </div> -->
+                    <h4>{{ client.firstName }}</h4>
+                    <h3>{{ client.lastName }}</h3>
+                    <h4>{{ client.email }}</h4>
+                </div>
+            </div>
     </v-container>
 </template>
 

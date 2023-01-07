@@ -1,5 +1,5 @@
 <template>
-        <v-container>
+    <v-container>
         <h1>Profile</h1>
         <h3>Update Username:</h3>
             <v-text-field
@@ -48,11 +48,13 @@ import router from '@/router';
         },
         methods: {
             updateCall(){
+                let tokenNum = cookies.get('token')
                 axios.request({
                     url: 'https://foodierest.ml/api/client',
                     method: "PATCH",
                     headers: {
                         "x-api-key": this.apiKey,
+                        token: tokenNum,
                     },
                     data: {
                         email: this.email,
@@ -65,7 +67,7 @@ import router from '@/router';
                     cookies.set('token', response.data.token);
                     cookies.set('clientId', response.data.clientId);
                     
-                    router.push('/signin');
+                    router.push('/explore');
                 }).catch((error)=>{
                     console.log(error);
                 })

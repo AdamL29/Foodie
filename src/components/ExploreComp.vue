@@ -6,13 +6,15 @@
             </v-btn>
         <h1>Explore</h1>
             <div v-for="(restaurant, index) in restaurants" :key="index">            
-                <div @click="restaurantChoice(restaurant.restaurantId, restaurantId)">
-                    <h2>{{ restName }}</h2>
-                    <h3>{{ restPhone }}</h3>
-                    <h4>{{ restBio }}</h4>
-                    <h3>{{ restAddress }}</h3>
-                    <h4>{{ restCity }}</h4>
-                    <h4>{{ restEmail }}</h4>
+                <div @click="restSelect(restaurant.restaurantId, restaurantId)">
+                    <h2>{{ restaurant.name }}</h2>
+                    <h3>{{ restaurant.phoneNum }}</h3>
+                    <div>
+                        <h4>{{ restaurant.bio }}</h4>
+                        <h3>{{ restaurant.address }}</h3>
+                        <h4>{{ restaurant.city }}</h4>
+                        <h4>{{ restaurant.email }}</h4>
+                    </div>
                 </div>
             </div>
     </v-container>
@@ -27,6 +29,8 @@ import router from "@/router"
         name: 'ExploreComp',
         data() {
             return {
+                apiKey: process.env.VUE_APP_API_KEY,
+                apiUrl: process.env.VUE_APP_API_URL,
                 restaurants: [],
             }
         },

@@ -17,4 +17,5 @@ import OrderCart from '@/components/OrderCart.vue';
 </script>
 
 <style scoped>
+
 </style>

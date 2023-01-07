@@ -15,3 +15,6 @@ import RegisterRest from '@/components/RegisterRest.vue';
     }
 
 </script>
+<style scoped>
+
+</style>

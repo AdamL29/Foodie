@@ -9,7 +9,7 @@
             <v-text-field
             v-model="password"
             />
-        <v-btn @click="signCall">
+        <v-btn @click="signIn">
         Sign In
         </v-btn>
     </v-container>
@@ -32,7 +32,7 @@ import router from '@/router';
             }
         },
         methods: {
-            signCall(){
+            signIn(){
                 axios.request({
                     url: 'https://foodierest.ml/api/client-login',
                     method: "POST",

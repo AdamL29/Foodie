@@ -1,7 +1,7 @@
 <template>
     <v-container>
-        <h1>Test Header</h1>
-            <button>Just Click</button>
+        <h1>Restaurant Profile</h1>
+            <vv-btn @click="menu">Edit Menu</vv-btn>
             <div v-for="(restaurant, index) in restaurants" :key="index">            
                 <h1>{{ restaurant.name }}</h1>
                 <h3>{{ restaurant.phoneNum }}</h3>
@@ -18,7 +18,7 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies"
-// import router from '@/router';
+import router from '@/router';
 
     export default {
         name: "RegisterProfile",
@@ -27,6 +27,11 @@ import cookies from "vue-cookies"
                 apiKey: process.env.VUE_APP_API_KEY,
                 apiUrl: process.env.VUE_APP_API_URL,
                 restaurants: [],
+            }
+        },
+        methods: {
+            menu() {
+                router.push('/menu')
             }
         },
         mounted() {

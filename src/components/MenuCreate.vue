@@ -1,9 +1,21 @@
 <template>
     <v-container>
         <h1>Menu</h1>
-        <v-text-field
-        v-model="items"
-        />
+            <h2>Name:</h2>
+                <v-text-field
+                v-model="items"
+                />
+            <h2>Price:</h2>
+                <v-text-field
+                v-model="items"
+                />
+            <h2>Description:</h2>
+                <v-text-field
+                v-model="items"
+                />
+        <v-btn @click="signCall">
+        Sign In
+        </v-btn>
     </v-container>
 </template>
 
@@ -16,6 +28,7 @@
                 apiUrl: process.env.VUE_APP_API_URL,
                 items: "",
                 image: "",
+                description: "",
             }
         },
         methods: {

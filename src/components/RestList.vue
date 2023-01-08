@@ -12,6 +12,8 @@ import axios from 'axios';
         name: "RestList",
         data() {
             return {
+                apiKey: process.env.VUE_APP_API_KEY,
+                apiUrl: process.env.VUE_APP_API_URL,
                 restaurants: []
             }
         },
@@ -31,15 +33,15 @@ import axios from 'axios';
                     this.restaurants = [
                                 {
                                     name : "Rest 1",
-                                    id : 1
+                                    id : []
                                 },
                                 {
                                     name : "Rest 2",
-                                    id : 20
+                                    id : []
                                 },
                                 {
                                     name : "Rest 3",
-                                    id : 30
+                                    id : []
                                 },
                             ]
             }

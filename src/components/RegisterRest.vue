@@ -76,7 +76,7 @@ import router from '@/router';
                 }).then((response)=>{
                     cookies.set('restToken', response.data.token);
                     cookies.set('restId', response.data.restId);
-                    router.push('/restaurant-signin')
+                    router.push('/restaurant-sign-in')
                 }).catch((error)=>{
                     console.log(error);
                 })

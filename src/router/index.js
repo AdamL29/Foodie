@@ -56,7 +56,7 @@ const routes = [
     component: ProfilePage
   },
   {
-    path: '/restaurant-page',
+    path: '/restaurant-page/:restaurantId',
     name: 'restaurantPage',
     component: RestaurantPage
   },

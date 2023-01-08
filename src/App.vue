@@ -2,11 +2,14 @@
   <v-app>
     <v-app-bar
       app
-      color="red"
+      color="purple"
       dark>
       <v-spacer><v-btn @click="goHome">Home</v-btn></v-spacer>
+      <v-spacer>
+          <img src="https://seeklogo.com/images/F/food-logo-59E5A73AFD-seeklogo.com.png" 
+          alt="A hand holding a plater of food.">
+      </v-spacer>
       <v-spacer><SignOut/></v-spacer>
-
     </v-app-bar>
 
     <v-main>
@@ -39,7 +42,9 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+img{
+  height: 5vh;
+}
 .body{
   display: grid;
   

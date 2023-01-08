@@ -54,7 +54,7 @@ import router from "@/router"
         methods: {
             restSelect(restaurantId) {
                 cookies.set('restaurantId', restaurantId);
-                router.push("/restaurant-page");
+                router.push('/restaurant-page/:restaurantId');
             },
             profileUpdate(){
                 router.push('/profile-page')

@@ -35,7 +35,7 @@ import router from '@/router';
             }
         },
         mounted() {
-            let restaurantId = cookies.get('restToken');
+            let restaurantId = cookies.get('restaurantId');
 
                 axios.request({
                     url: 'https://foodierest.ml/api/restaurant',

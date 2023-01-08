@@ -12,7 +12,7 @@
         <div>
             <v-btn @click="explorePage">Explore</v-btn>
             <v-btn @click="profilePage">Profile</v-btn>
-
+            <v-btn @click="RestList">Restaurants</v-btn>
         </div>
     </v-container>
 </template>
@@ -38,6 +38,9 @@ export default {
         },
         explorePage(){
             router.push('/explore')
+        },
+        RestList(){
+            router.push('/restaurants-list')
         },
         signIn(){
             console.log('You are signed in');

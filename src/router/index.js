@@ -10,6 +10,7 @@ import SignInPage from '@/views/SignInPage';
 import ProfilePage from '@/views/ProfilePage';
 import RestaurantPage from '@/views/RestaurantPage';
 import RestSignInPage from '@/views/RestSignInPage';
+import RestView from '@/views/RestView';
 
 Vue.use(VueRouter)
 
@@ -63,7 +64,12 @@ const routes = [
     path: '/restaurant-sign-in',
     name: 'restSignIn',
     component: RestSignInPage
-  }
+  },
+  {
+    path: '/restaurants-list',
+    name: 'restaurantList',
+    component: RestView
+  },
 ]
 
 const router = new VueRouter({

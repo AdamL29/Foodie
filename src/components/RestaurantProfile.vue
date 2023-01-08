@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h1>Restaurant Profile</h1>
-            <vv-btn @click="menu">Edit Menu</vv-btn>
+            <v-btn @click="menu">Edit Menu</v-btn>
             <div v-for="(restaurant, index) in restaurants" :key="index">            
                 <h1>{{ restaurant.name }}</h1>
                 <h3>{{ restaurant.phoneNum }}</h3>
@@ -35,7 +35,7 @@ import router from '@/router';
             }
         },
         mounted() {
-            let restaurantId = cookies.get('restaurantId');
+            let restaurantId = cookies.get('restToken');
 
                 axios.request({
                     url: 'https://foodierest.ml/api/restaurant',

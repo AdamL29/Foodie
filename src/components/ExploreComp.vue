@@ -6,7 +6,7 @@
             </v-btn>
         <h1>Explore</h1>
             <div v-for="(restaurant, index) in restaurants" :key="index">            
-                <div @click="restSelect(restaurant.restaurantId, restaurantId)">
+                <div @click="restSelect(rest.restaurantId, restaurantId)">
                     <h2>{{ restaurant.name }}</h2>
                     <h3>{{ restaurant.phoneNum }}</h3>
                     <div>
@@ -54,7 +54,7 @@ import router from "@/router"
         methods: {
             restSelect(restaurantId) {
                 cookies.set('restaurantId', restaurantId);
-                router.push('/restaurant-page/:restaurantId');
+                router.push('/restaurant-page/:rest.restaurantId');
             },
             profileUpdate(){
                 router.push('/profile-page')

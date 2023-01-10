@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-for="rest in restaurants" :key="rest.id">
-            <router-link :to="'/restaurant/'+rest.id">{{rest.name}}</router-link>
+        <div v-for="rest in restaurants" :key="rest.restaurantId">
+            <router-link :to="'/restaurant/'+rest.restaurantId">{{rest.name}}</router-link>
         </div>
     </div>
 </template>
@@ -30,20 +30,6 @@ import axios from 'axios';
                     }).catch((error)=>{
                         console.log(error);
                     });
-                    this.restaurants = [
-                                {
-                                    name : "Rest 1",
-                                    id : []
-                                },
-                                {
-                                    name : "Rest 2",
-                                    id : []
-                                },
-                                {
-                                    name : "Rest 3",
-                                    id : []
-                                },
-                            ]
             }
         },
         mounted () {
